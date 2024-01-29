@@ -35,9 +35,10 @@ class Persona(val dni: String, var cuentas: Array<Cuenta?> = Array(3) {null}){
     * @param cantidad Monto a transferir
     * @return true si la transferencia fue exitosa, false en caso contrario.
     */
-    fun realizarTransferencia(personaEnvia:Persona, personaFinal: Persona, cuentaOrigen: Int, cuentaDestino: Int, cantidad: Double): Boolean {
-        val cuentaEnvia = personaEnvia.cuentas[cuentaOrigen]
-        val cuentaRecibe = personaFinal.cuentas[cuentaDestino]
+    //TODO
+    fun realizarTransferencia(personaFinal: Persona, cuentaOrigen: Int, cuentaDestino: Int, cantidad: Double): Boolean {
+        val cuentaEnvia = this.cuentas.find { (it?.numCuenta ?: -1) == cuentaOrigen }
+        val cuentaRecibe = personaFinal.cuentas.find { (it?.numCuenta ?: -1) == cuentaDestino }
 
         if (cuentaEnvia != null && cuentaRecibe != null) {
             if (cuentaEnvia.saldoDispo >= cantidad) {

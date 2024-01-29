@@ -1,4 +1,8 @@
-class Cuenta(val numCuenta: Int, var saldoDispo: Double = 0.0){
+class Cuenta(val numCuenta: Int, saldoDispo: Double = 0.0){
+
+    var saldoDispo: Double = saldoDispo
+        private set
+
 
     /**
      * Consulta el saldo disponible de la cuenta.
